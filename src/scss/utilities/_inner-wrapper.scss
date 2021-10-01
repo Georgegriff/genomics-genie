@@ -5,3 +5,19 @@
   padding-left: get-size(500);
   padding-right: get-size(500);
 }
+
+.flex-wrapper {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}

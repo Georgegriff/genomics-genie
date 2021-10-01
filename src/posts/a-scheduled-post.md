@@ -1,5 +1,6 @@
 ---
 title: A scheduled post
+draft: true
 date: '2022-06-18'
 tags:
   - demo-content
@@ -28,6 +29,5 @@ How about an ordered list of stuff:
 1. Sed posuere consectetur est at lobortis
 2. Aenean lacinia bibendum nulla sed consectetur
 3. Sed posuere consectetur est at lobortis
-
 
 Hopefully, this has demonstrated how simple it is to make a nice looking blog with Hylia.

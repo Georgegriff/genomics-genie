@@ -1,19 +1,14 @@
 {
   "items": [
     {
-      "text": "Home",
-      "url": "/",
+      "text": "Posts",
+      "url": "/#main-content",
       "external": false
     },
     {
-      "text": "GitHub",
-      "url": "https://github.com/hankchizljaw/hylia",
+      "text": "Instagram",
+      "url": "https://instagram.com/genomics_genie",
       "external": true
-    },
-    {
-      "text": "Example Contact Page",
-      "url": "/contact",
-      "external": false
     }
   ]
 }

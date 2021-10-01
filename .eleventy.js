@@ -35,27 +35,18 @@ module.exports = function(config) {
   config.addPassthroughCopy('src/admin/previews.js');
   config.addPassthroughCopy('node_modules/nunjucks/browser/nunjucks-slim.js');
   config.addPassthroughCopy('src/robots.txt');
-
-  const now = new Date();
-
-  const hideDemoContentInProd = () => {
-    if(process.env.NODE_ENV !== "production") {
-      return true;
-    }
-     return false;
-  }
-
+  
   // Custom collections
+  const now = new Date();
   const livePosts = post => post.date <= now && !post.data.draft;
   config.addCollection('posts', collection => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)
-    ].filter(hideDemoContentInProd).reverse();
+    ].reverse();
   });
 
   config.addCollection('postFeed', collection => {
     return [...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
-      .filter(hideDemoContentInProd)
       .reverse()
       .slice(0, site.maxPostsPerPage);
   });
