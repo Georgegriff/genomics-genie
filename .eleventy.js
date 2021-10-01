@@ -38,16 +38,24 @@ module.exports = function(config) {
 
   const now = new Date();
 
+  const hideDemoContentInProd = () => {
+    if(process.env.NODE_ENV !== "production") {
+      return true;
+    }
+     return false;
+  }
+
   // Custom collections
   const livePosts = post => post.date <= now && !post.data.draft;
   config.addCollection('posts', collection => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)
-    ].reverse();
+    ].filter(hideDemoContentInProd).reverse();
   });
 
   config.addCollection('postFeed', collection => {
     return [...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts)]
+      .filter(hideDemoContentInProd)
       .reverse()
       .slice(0, site.maxPostsPerPage);
   });
